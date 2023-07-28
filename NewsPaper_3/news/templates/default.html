@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>{% block title %}Мои новости{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div id="header">
@@ -9,6 +10,11 @@
     </div>
 
     <div id="content">
+        <form action="{% url 'news:search_results' %}" method="get" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Поиск" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+        </form>
+        <a href="{% url 'news:add_news' %}" class="btn btn-primary my-2">Добавить новость</a>
         {% block content %}
         {% endblock %}
     </div>
